@@ -11,6 +11,15 @@ var Greeter  = React.createClass({
             message: 'This is a message from the component'
       }
     },
+
+    onButtonClick: function (event){
+        event.preventDefault(); // Prevents page from reloading
+
+        var name = this.refs.name.value; // Fetches the name value that has been input in our form by getting the ref of the input field.
+
+        alert(name);
+    },
+
    render: function(){
 
        //Access our prop to display || this.props.object stores all of our props.
@@ -22,13 +31,16 @@ var Greeter  = React.createClass({
            <div>
                <h1>Hello {name}!</h1>
                <p>{message}!</p>
+
+               <form onSubmit={this.onButtonClick}>
+                   <input type='text' ref='name'/>
+                   <button>Set Name</button>
+               </form>
            </div>
        );
    }
 
-
 });
-
 
 //When you are returning JSX, you have to return only one root element, in this case <div>
 
