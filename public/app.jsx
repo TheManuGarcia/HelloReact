@@ -1,7 +1,10 @@
 //Common naming convention for react components (First letter is in Caps then camel case)
+//A component shouldn't update its own props but it's allowed to update its own state
+
 var Greeter  = React.createClass({
 
-    //getDefaultProps is a method of React that returns an object of properties
+    //getDefaultProps is a method of React that returns an object of properties.
+    //The props get defined
 
     getDefaultProps: function(){
 
@@ -12,18 +15,40 @@ var Greeter  = React.createClass({
       }
     },
 
+    //React built-in function. || Maintain a name state that you can change
+
+    //Sets its name state to the props value
+
+    getInitialState: function (){
+        return {
+            name: this.props.name
+        }
+    },
+
     onButtonClick: function (event){
         event.preventDefault(); // Prevents page from reloading
 
-        var name = this.refs.name.value; // Fetches the name value that has been input in our form by getting the ref of the input field.
+        var nameRef = this.refs.name;
 
-        alert(name);
+        var name = nameRef.value; // Fetches the name value that has been input in our form by getting the ref of the input field.
+
+        //Clears out the input field
+        nameRef.value = '';
+
+        if(typeof name === 'string' && name.length > 0) {
+            //Gets called when a user submits the form. || Updates the state and re-render the parts of the component
+            this.setState({
+                name: name
+            });
+        }
     },
 
    render: function(){
 
+       //We access our name state to display on screen
+       var name = this.state.name;
+
        //Access our prop to display || this.props.object stores all of our props.
-       var name = this.props.name;
        var message = this.props.message;
 
 
