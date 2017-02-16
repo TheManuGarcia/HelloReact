@@ -6,3 +6,4 @@ Technologies used:
 - ReactJS
 - Node.js
 - Express.js
+- Babel
