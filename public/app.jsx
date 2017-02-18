@@ -2,10 +2,12 @@
 
 var GreeterMessage = React.createClass({
    render: function () {
+       var name = this.props.name;
+       var message = this.props.message;
        return (
          <div>
-             <h1>Some H1</h1>
-             <p>Some paragraph</p>
+             <h1>Hello {name} !</h1>
+             <p>{message}</p>
          </div>
        );
 
@@ -15,7 +17,9 @@ var GreeterMessage = React.createClass({
 var GreeterForm = React.createClass({
 
    onFormSubmit: function(e){
-     e.preventDefault();
+
+       // VALIDATES DATA
+       e.preventDefault();
      // Pull the value out of our form
      var name = this.refs.name.value;
 
@@ -23,7 +27,7 @@ var GreeterForm = React.createClass({
      if (name.length > 0){
          this.refs.name.value = '';
 
-         // Passing in the name value
+         // CALLS A FUNCTION THAT'S PASSED IN FROM THE PARENT
          this.props.onNewName(name);
 
      }
@@ -65,6 +69,7 @@ var Greeter  = React.createClass({
         }
     },
 
+    // SETS THE STATE OF GREETER
     handleNewName: function (name){
 
             //Gets called when a user submits the form. || Updates the state and re-render the parts of the component
@@ -84,12 +89,10 @@ var Greeter  = React.createClass({
 
        return(
            <div>
-               <h1>Hello {name}!</h1>
-               <p>{message}!</p>
 
-               <GreeterMessage/>
+               <GreeterMessage name ={name} message = {message}/>
 
-               /*Add new prop onNewName*/
+               {/*Add new prop onNewName*/}
                <GreeterForm onNewName = {this.handleNewName}/>
            </div>
        );
