@@ -1,5 +1,6 @@
 //Creating Form and Message component
 
+// PRESENTATIONAL COMPONENT
 var GreeterMessage = React.createClass({
    render: function () {
        var name = this.props.name;
@@ -13,6 +14,7 @@ var GreeterMessage = React.createClass({
 
    }
 });
+// PRESENTATIONAL COMPONENT
 
 var GreeterForm = React.createClass({
 
@@ -45,6 +47,7 @@ var GreeterForm = React.createClass({
 //Common naming convention for react components (First letter is in Caps then camel case)
 //A component shouldn't update its own props but it's allowed to update its own state
 
+// CONTAINER COMPONENT
 var Greeter  = React.createClass({
 
     //getDefaultProps is a method of React that returns an object of properties.
