@@ -1,6 +1,7 @@
 # HelloReact
 
-First introduction to the React framework, following an online tutorial.
+First introduction to the React framework.
+Learning about components.
 
 Technologies used:
 - ReactJS
