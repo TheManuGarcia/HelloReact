@@ -51,6 +51,7 @@ var GreeterForm = React.createClass({
 var Greeter  = React.createClass({
 
     //getDefaultProps is a method of React that returns an object of properties.
+
     //The props get defined
 
     getDefaultProps: function(){
@@ -103,7 +104,7 @@ var Greeter  = React.createClass({
 
 });
 
-//When you are returning JSX, you have to return only one root element, in this case <div>
+//When we are returning JSX, we have to return only one root element, in this case <div>
 
 var firstName = 'Manu';
 var message = 'Winter is coming';
