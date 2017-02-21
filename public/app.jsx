@@ -22,23 +22,40 @@ var GreeterForm = React.createClass({
 
        // VALIDATES DATA
        e.preventDefault();
-     // Pull the value out of our form
-     var name = this.refs.name.value;
+
+
+       var updates = {};
+
+       // Pull the value out of our form
+       var name = this.refs.name.value;
+       var message = this.refs.message.value;
 
      // Prints name and clears the form
      if (name.length > 0){
          this.refs.name.value = '';
-
+         updates.name = name;
          // CALLS A FUNCTION THAT'S PASSED IN FROM THE PARENT
-         this.props.onNewName(name);
-
      }
+
+     if(message.length>0) {
+         this.refs.message.value='';
+         updates.message=message;
+     }
+
+       this.props.onNewData(updates);
    },
     render: function (){
        return (
            <form onSubmit={this.onFormSubmit}>
-               <input type='text' ref='name'/>
-               <button>Set Name</button>
+               <div>
+                    <input type='text' ref='name' placeholder="Enter name"/>
+               </div>
+               <div>
+                    <textarea rows="2" ref='message' placeholder="Enter message"/>
+               </div>
+               <div>
+                    <button>Submit</button>
+               </div>
            </form>
        );
    }
@@ -69,17 +86,16 @@ var Greeter  = React.createClass({
 
     getInitialState: function (){
         return {
-            name: this.props.name
+            name: this.props.name,
+            message: this.props.message
         }
     },
 
     // SETS THE STATE OF GREETER
-    handleNewName: function (name){
+    handleNewData: function (updates){
 
             //Gets called when a user submits the form. || Updates the state and re-render the parts of the component
-            this.setState({
-                name: name
-            });
+            this.setState(updates);
         },
 
    render: function(){
@@ -88,7 +104,7 @@ var Greeter  = React.createClass({
        var name = this.state.name;
 
        //Access our prop to display || this.props.object stores all of our props.
-       var message = this.props.message;
+       var message = this.state.message;
 
 
        return(
@@ -97,7 +113,7 @@ var Greeter  = React.createClass({
                <GreeterMessage name ={name} message = {message}/>
 
                {/*Add new prop onNewName*/}
-               <GreeterForm onNewName = {this.handleNewName}/>
+               <GreeterForm onNewData = {this.handleNewData}/>
            </div>
        );
    }
