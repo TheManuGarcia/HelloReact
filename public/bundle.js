@@ -52,7 +52,6 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	
 	function greeter (){
 	    document.write('From greeter function');
 	}
