@@ -1,3 +1,6 @@
+var React = require('react');
+var ReactDOM = require('react-dom');
+
 //Creating Form and Message component
 
 // PRESENTATIONAL COMPONENT
