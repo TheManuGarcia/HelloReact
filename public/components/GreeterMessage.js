@@ -1,4 +1,4 @@
-var React = requite('react');
+var React = require('react');
 
 
 // PRESENTATIONAL COMPONENT
