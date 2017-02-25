@@ -1,6 +1,6 @@
 var React = require('react');
-var GreeterMessage = require('./GreeterMessage');
-var GreeterForm = require('./GreeterForm');
+var GreeterMessage = require('GreeterMessage');
+var GreeterForm = require('GreeterForm');
 
 
 //Common naming convention for react components (First letter is in Caps then camel case)
