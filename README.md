@@ -9,4 +9,4 @@ Technologies used:
 - Express.js
 - Babel
 
-<img src="https://github.com/TheManuGarcia/HelloReact/blob/master/HelloReactScreenshot.png"/>
+<img src="https://github.com/TheManuGarcia/HelloReact/blob/master/HelloReact.gif"/>
